@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Аккаунт Details</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/f390425e8d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon" type="image/x-icon" href="images/ecom.png" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="path-to-fontawesome/font-awesome.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/ecom.png" width="125px" />
+          </a>
+        </div>
+        <div class="search_bar">
+          <input
+            id="search-input"
+            type="text"
+            name="search"
+            placeholder="Поиск"
+          />
+          <button id="search-button" type="submit" class="search-button">
+            <img src="images\icons8-search-24.png" />
+          </button>
+        </div>
+
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="allproducts.html">Продукты</a></li>
+            <li><a href="">О нас</a></li>
+            <li><a href="contact.html">Контакт</a></li>
+            <li><a href="account.html">Аккаунт</a></li>
+          </ul>
+        </nav>
+        <a href="cart.html">
+          <img
+            class="cart-image"
+            src="images/cart.png"
+            width="30px"
+            height="30px"
+          />
+        </a>
+        <div class="toggle">
+          <i class="fa-solid fa-moon toggle-icon"></i>
+          <i class="fa-solid fa-sun toggle-icon"></i>
+          <div class="toggle-ball"></div>
+        </div>
+        <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" />
+      </div>
+    </div>
+<!-- -----------account-page------------------->
+<div class="account-page">
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+        <div class="col-2">
+          <img src="images/everyday appliances.png" width="100%">
+        </div>
+        <div class="col-2">
+          <div class="form-container">
+            <div class="form-btn">
+              <span onclick="toggleForm('login')">Login</span>
+              <span onclick="toggleForm('register')">Register</span>
+              <hr id="Indicator">
+            </div>
+            <form id="LoginForm" onsubmit="login(event)">
+              <input class="input-field" type="email" placeholder="Email" required>
+              <input class="input-field" type="password" placeholder="Password" required>
+              <button type="submit" class="btn">Login</button>
+              <a href="">Forgot Password?</a>
+            </form>
+            <form id="RegForm" onsubmit="register(event)">
+              <input class="input-field" type="text" placeholder="Username" required>
+              <input class="input-field" type="email" placeholder="Email" required>
+              <input class="input-field" type="password" placeholder="Password" required>
+              <button type="submit" class="btn">Register</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+
+    <!------footer--------->
+    <div class="footer">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="footer-col-1">
+            <h3>Принимаем к оплате</h3>
+
+            <div class="app-logo">
+              <img src="images/carta.webp" class="footer-img" />
+              <img src="images/logo-elcart.png" class="footer-img" />
+            </div>
+          </div>
+          <div class="footer-col-2">
+            <img src="images/ecom.png" />
+            <p>
+              Технология одна по себе не представляет интереса. Важно, что мы
+              сможем сделать с помощью неё
+            </p>
+          </div>
+          <div class="footer-col-3">
+            <h3>Клиентам</h3>
+            <ul>
+              <li>Coupons</li>
+              <li>Blog Post</li>
+              <li>Return Policy</li>
+              <li>Join Affiliate</li>
+            </ul>
+          </div>
+          <div class="footer-col-4">
+            <h3>Контактная информация</h3>
+            <div class="socialbtns" align="center">
+              <ul>
+                <li><a href="#" class="fa fa-lg fa-facebook"></a>Facebook</li>
+                <br />
+                <li><a href="#" class="fa fa-lg fa-twitter"></a>Twitter</li>
+                <br />
+                <li><a href="#" class="fa fa-lg fa-instagram"></a>Instagram</li>
+                <br />
+                <li><a href="#" class="fa fa-lg fa-youtube"></a>Youtube</li>
+                <br />
+              </ul>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <p class="copyright">
+          Copyright &copy
+          <script type="text/javascript">
+            document.write(new Date().getFullYear());
+          </script>
+          - E-COMMERCE
+        </p>
+      </div>
+    </div>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyDCW9SDUz5LwyoNnG9AS6muAT9d0DR0ViM",
+  authDomain: "e-cmmerce-cde2d.firebaseapp.com",
+  projectId: "e-cmmerce-cde2d",
+  storageBucket: "e-cmmerce-cde2d.appspot.com",
+  messagingSenderId: "1062187953929",
+  appId: "1:1062187953929:web:1262586065ddff08de6dd8",
+  measurementId: "G-QSNDRFEBJ1"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+
+<script>
+
+
+  // Function to toggle between login and register forms
+  function toggleForm(formType) {
+    var indicator = document.getElementById('Indicator');
+    var loginForm = document.getElementById('LoginForm');
+    var regForm = document.getElementById('RegForm');
+
+    if (formType === 'login') {
+      indicator.style.transform = 'translateX(0)';
+      loginForm.style.display = 'block';
+      regForm.style.display = 'none';
+    } else {
+      indicator.style.transform = 'translateX(100%)';
+      loginForm.style.display = 'none';
+      regForm.style.display = 'block';
+    }
+  }
+
+  // Function to handle login form submission
+  function login(event) {
+    event.preventDefault();
+    var email = document.querySelector('#LoginForm input[type="email"]').value;
+    var password = document.querySelector('#LoginForm input[type="password"]').value;
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(function(userCredential) {
+        // Login successful, perform further actions
+        var user = userCredential.user;
+        console.log('Login successful:', user);
+      })
+      .catch(function(error) {
+        // Handle login errors
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.error('Login error:', errorMessage);
+      });
+  }
+
+  // Function to handle registration form submission
+  function register(event) {
+    event.preventDefault();
+    var email = document.querySelector('#RegForm input[type="email"]').value;
+    var password = document.querySelector('#RegForm input[type="password"]').value;
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(function(userCredential) {
+        // Registration successful, perform further actions
+        var user = userCredential.user;
+        console.log('Registration successful:', user);
+        // Add code to display the user's name or any other desired action
+      })
+      .catch(function(error) {
+        // Handle registration errors
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.error('Registration error:', errorMessage);
+      });
+  }
+  // Function to toggle between login and register forms
+function toggleForm(formType) {
+  var indicator = document.getElementById('Indicator');
+  var loginForm = document.getElementById('LoginForm');
+  var regForm = document.getElementById('RegForm');
+
+  if (formType === 'login') {
+    indicator.style.transform = 'translateX(0)';
+    loginForm.style.display = 'block';
+    regForm.style.display = 'none';
+  } else {
+    indicator.style.transform = 'translateX(100%)';
+    loginForm.style.display = 'none';
+    regForm.style.display = 'block';
+  }
+}
+
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script src="./script.js"></script>
+
+  </body>
+</html>

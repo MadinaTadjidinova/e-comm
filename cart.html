@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Details</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="images/ecom.png" />
+  </head>
+  <style>
+    .cart-container {
+        width: 80%;
+        margin: auto;
+    }
+
+    .cart-item {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+
+    .cart-item img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        margin-right: 20px;
+    }
+
+    .cart-item h4 {
+        margin: 0;
+        flex-grow: 1;
+    }
+
+    .cart-item p {
+        margin: 0;
+        font-weight: bold;
+    }
+</style>
+
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/ecom.png" width="125px" />
+          </a>
+        </div>
+        <div class="search_bar">
+          <input type="text" name="search" placeholder="Поиск" />
+          <button type="submit" class="search-button">
+            <img src="images\icons8-search-24.png" />
+          </button>
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="allproducts.html">Продукты</a></li>
+            <li><a href="">О нас</a></li>
+            <li><a href="">Контакт</a></li>
+            <li><a href="account.html">Аккаунт</a></li>
+          </ul>
+        </nav>
+        <a href="cart.html">
+          <img src="images/cart.png" width="30px" height="30px" />
+        </a>
+        <div class="toggle">
+          <i class="fa-solid fa-moon toggle-icon"></i>
+          <i class="fa-solid fa-sun toggle-icon"></i>
+          <div class="toggle-ball"></div>
+        </div>
+        <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" />
+      </div>
+    </div>
+    <!-- --------------------cart item details--------->
+    <!-- <div class="small-container cart-page">
+      <table id="table">
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+        </tr>
+        <tbody></tbody>
+      </table>
+      <div class="total-price" data-aos="fade-up" id="subtotal-section"></div>
+      <div id="storedItems"></div>
+      <div id="empty-cart">
+        <p>No product added to the cart.</p>
+        <a href="allproducts.html" class="btn-add">Add Продукты</a>
+      </div>
+    </div>
+    <div id="toast">{name of the }</div> -->
+
+    <div class="cart-container">
+        <table id="table">
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            <tbody></tbody>
+        </table>
+        <div class="total-price"></div>
+        <button class="buy-btn">Buy</button>
+    </div>
+
+    <!-- Pop-up window -->
+<div id="popup-container">
+    <div id="popup-content">
+        <h2>Thank you for your purchase!</h2>
+        <p>Your order has been confirmed.</p>
+        <button id="close-btn">Close</button>
+    </div>
+</div>
+
+    
+    <!------footer--------->
+    <div class="footer">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="footer-col-1">
+            <h3>Принимаем к оплате</h3>
+
+            <div class="app-logo">
+              <img src="images/carta.webp" />
+              <img src="images/logo-elcart.png" />
+            </div>
+          </div>
+          <div class="footer-col-2">
+            <img src="images/ecom.png" />
+            <p>
+              Технология одна по себе не представляет интереса. Важно, что мы
+              сможем сделать с помощью неё
+            </p>
+          </div>
+          <div class="footer-col-3">
+            <h3>Клиентам</h3>
+            <ul>
+              <li>Coupons</li>
+              <li>Blog Post</li>
+              <li>Return Policy</li>
+              <li>Join Affiliate</li>
+            </ul>
+          </div>
+          <div class="footer-col-4">
+            <h3>Контактная информация</h3>
+            <ul>
+              <li>Facebook</li>
+              <li>Twitter</li>
+              <li>Instagram</li>
+              <li>Youtube</li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <p class="copyright">
+          Copyright &copy;
+          <script type="text/javascript">
+            document.write(new Date().getFullYear());
+          </script>
+          - E-COMMERCE
+        </p>
+      </div>
+    </div>
+
+    <!-- --------------JS for toggle menu--------- -->
+    <script>
+      var MenuItems = document.getElementById("MenuItems");
+      MenuItems.style.maxHeight = "0px";
+
+      function menutoggle() {
+        if (MenuItems.style.maxHeight == "0px") {
+          MenuItems.style.maxHeight = "200px";
+        } else {
+          MenuItems.style.maxHeight = "0px";
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+
+// window.onload = function () {
+//         localStorage.removeItem("cart");
+//       };
+// Get cart items from localStorage
+var cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+// Get table body element
+var tableBody = document.querySelector('#table tbody');
+
+// Function to remove item from cart
+function removeItem(index) {
+  // Remove item from cart array
+  cart.splice(index, 1);
+  
+  // Update localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
+  
+  // Remove row from table
+  var row = tableBody.querySelector(`[data-index="${index}"]`);
+  if (row) {
+    row.parentNode.removeChild(row);
+  }
+  
+  // Recalculate and display total price
+  calculateTotalPrice();
+  
+  // Check if cart is empty and hide buy button if needed
+  checkCartEmpty();
+}
+
+// Function to calculate and display total price
+function calculateTotalPrice() {
+  var total = cart.reduce(function(acc, item) {
+    return acc + (item.price * item.quantity);
+  }, 0);
+  
+  var totalPriceElement = document.querySelector('.total-price');
+  totalPriceElement.textContent = 'Total Price: Rs. ' + total.toFixed(2);
+}
+
+// Function to check if cart is empty and hide buy button if needed
+function checkCartEmpty() {
+  var buyButton = document.querySelector('.buy-btn');
+  if (cart.length === 0) {
+    buyButton.style.display = 'none';
+  } else {
+    buyButton.style.display = 'block';
+  }
+}
+
+// Render cart items in the table
+cart.forEach(function(item, index) {
+  var row = document.createElement('tr');
+  row.innerHTML = `
+    <td class="product">
+      <img src="${item.imageSrc}" alt="${item.title}" />
+      <span>${item.title}</span>
+      <button class="remove-btn" data-index="${index}">Remove</button>
+    </td>
+    <td class="quantity">${item.quantity}</td>
+    <td class="subtotal">${item.price * item.quantity}</td>
+  `;
+  
+  // Append the row to the table body
+  tableBody.appendChild(row);
+});
+
+// Add event listener to remove button
+var removeButtons = document.querySelectorAll('.remove-btn');
+removeButtons.forEach(function(button) {
+  button.addEventListener('click', function(event) {
+    var index = parseInt(event.target.getAttribute('data-index'));
+    removeItem(index);
+  });
+});
+
+// Calculate and display total price
+calculateTotalPrice();
+
+// Add event listener to buy button
+var buyButton = document.querySelector('.buy-btn');
+buyButton.addEventListener('click', function() {
+  alert('Thank you for your purchase!');
+  
+  // Clear localStorage and remove rows from table
+  localStorage.removeItem('cart');
+  tableBody.innerHTML = '';
+  
+  // Recalculate and display total price
+  calculateTotalPrice();
+  
+  // Hide buy button
+  buyButton.style.display = 'none';
+});
+
+// Add event listener to close button
+var closeButton = document.getElementById('close-btn');
+closeButton.addEventListener('click', function() {
+  popupContainer.style.display = 'none';
+});
+
+var buyButton = document.querySelector('.buy-btn');
+
+var popupContainer = document.getElementById('popup-container');
+var closeButton = document.getElementById('close-btn');
+
+buyButton.addEventListener('click', function() {
+    popupContainer.style.display = 'block';
+});
+
+closeButton.addEventListener('click', function() {
+    popupContainer.style.display = 'none';
+});
+
+
+    </script>
+  </body>
+</html>
