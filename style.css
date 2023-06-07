@@ -190,7 +190,7 @@ p {
 }
 /*search bar start */
 .search_bar{
-    width: 35%;
+    width: 30%;
     height: 43px;
     max-width: 700px;
     display: flex;
@@ -423,7 +423,7 @@ small {
 }
 
 .testimonial .col-3 h3 {
-    font-weight: 600;
+    font-weight: 600px;
     color: #555;
     font-size: 16px;
 }
@@ -550,7 +550,7 @@ ul {
         -webkit-backdrop-filter: blur(5px);
         backdrop-filter: blur(5px);
         position: absolute;
-        top: 72px;
+        top: 0px;
         left: 0;
         width: 100%;
         z-index: 9999;
@@ -815,12 +815,11 @@ th:last-child {
 /* ----------------account-page ---------- */
 
 .account-page {
-    padding: 50px 0;
+    /* padding: 50px 0; */
     background: radial-gradient(#fff, #bee7ff);
 }
 
 .form-container {
-    background: #fff;
     width: 300px;
     height: 400px;
     margin: auto;
@@ -905,12 +904,12 @@ form a {
 }
 
 
-/* --------media query for less than 600 screen size----- */
+/* --------media query for less than 600px screen size----- */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600pxpx) {
     .search_bar{
         position: absolute;
-        width: 90%;
+        width: 80%;
         display: inline-flex;
         justify-content: center;
         margin-top: 90px;
@@ -1151,6 +1150,7 @@ form a {
 
 .container.active {
     background-color: #000;
+    max-width: 100%;
 }
 
 .navbar.active {
@@ -1481,4 +1481,81 @@ input.item-quantity:focus {
 
 .hide {
     display: none;
+}
+
+
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    overflow: hidden; /* This is to make sure the border-radius applies to the iframe as well */
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
+    margin-top: 40px;
+}
+
+.map-container iframe {
+    width: 90%; /* 90% of the parent container */
+    height: 90%; /* 90% of the parent container */
+    border: 0; /* Removes the border */
+}
+
+.contact-info {
+    padding: 16px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-info h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contact-info h3 {
+    margin-top: 20px;
+    color: #333;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    color: #666;
+}
+
+
+.form-container-2 {
+    width: 100%;
+    max-width: 800px; /* Set a maximum width for larger screens */
+    height: auto; /* Allow the height to adjust based on the content */
+    margin: 2em auto; /* Provide some vertical space */
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* A more subtle shadow */
+    text-align: left; /* Left-align the text */
+    position: relative;
+    overflow: hidden; /* Keep this the same */
+}
+
+.about-us {
+    color: #333;
+    line-height: 1.6;  
+}
+
+.about-us h2 {
+    text-transform: uppercase;
+    color: #333; /* Dark grey to match the text */
+    margin-bottom: 1em; /* Some space below the title */
+    font-size: 2em; /* Larger font size */
+}
+.about-us h4 {
+    text-transform: uppercase;
+    color: #333; /* Dark grey to match the text */
+    margin-bottom: 1em; /* Some space below the title */
+    font-size: 1.2em; /* Larger font size */
+}
+.about-us p {
+    margin: 0.5em 0 1em; /* Some vertical space between paragraphs */
+    font-size: 1.1em; /* Slightly larger text */
 }

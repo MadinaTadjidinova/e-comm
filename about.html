@@ -34,7 +34,7 @@
   </head>
 
   <body class="account-page">
-    <div class="container">
+    <div class="container ">
       <div class="navbar">
         <div class="logo">
           <a href="index.html">
@@ -86,25 +86,42 @@
           <img src="images/everyday appliances.png" width="100%">
         </div>
         <div class="col-2">
-          <div class="form-container">
-            <div class="form-btn">
-              <span onclick="toggleForm('login')">Login</span>
-              <span onclick="toggleForm('register')">Register</span>
-              <hr id="Indicator">
+          <div class="form-container-2">
+            <div class="about-us">
+                <h2>О нас</h2>
+                <p>Мы - динамично развивающаяся компания, специализирующаяся на продаже и обслуживании электронных устройств. Наша команда состоит из профессионалов с большим опытом работы в данной сфере.</p>
+                <p>Мы предлагаем широкий выбор товаров, отличающихся высоким качеством и надежностью. Наша миссия - предлагать клиентам лучшие решения, которые помогают упростить и улучшить их повседневную жизнь.</p>
+                <p>Все товары, представленные в нашем интернет-магазине, сопровождаются гарантией, а наши специалисты всегда готовы помочь с любыми вопросами.</p>
             </div>
-            <form id="LoginForm" onsubmit="login(event)">
-              <input class="input-field" type="email" placeholder="Email" required>
-              <input class="input-field" type="password" placeholder="Password" required>
-              <button type="submit" class="btn">Login</button>
-              <a href="">Forgot Password?</a>
-            </form>
-            <form id="RegForm" onsubmit="register(event)">
-              <input class="input-field" type="text" placeholder="Username" required>
-              <input class="input-field" type="email" placeholder="Email" required>
-              <input class="input-field" type="password" placeholder="Password" required>
-              <button type="submit" class="btn">Register</button>
-            </form>
           </div>
+        </div>
+        <div class="about-us">
+            <h2>Гарантия</h2>
+            <h4>Гарантия и сервисное обслуживание</h4>
+            <ul>
+                <li>-- Гарантированный обмен в течении 14 дней</li>
+                <li>-- Бесплатный ремонт в течении гарантийного срока в фирменных сервисных центрах Engаины и Европы</li>
+                <li>-- Выдаем Холодильник в пользование на время ремонта</li>
+            </ul>
+            <p>На все устройства Apple (iPhone, Стиральная машина, Apple Watch, Macbook, iMac) распространяется гарантия 12 месяцев от производителя.</p>
+
+            <p>Весь товар в интернет-магазине <a href="https://blackm.com.eng.html">blackm.com.eng.html</a> сопровождается гарантией магазина. Срок гарантийного обслуживания указан на странице товара, и в гарантийном талоне, который вы получаете вместе с товаром. Также вы можете получить подробную информацию у наших менеджеров по телефону:</p>
+            <p><a href="tel:+996774714663">0774 71 46 63</a></p>
+            <p><a href="tel:+996708334365">0708 33 43 65</a></p>
+        
+            <h3>Обмен и возврат товара в течение первых 14 дней после покупки</h3>
+            
+            <p>В соответствии с Законом Engаины "О защите прав потребителей" покупатель имеет право на замену или возврат товара в течение 14 дней с момента покупки. Обмену или возврату подлежит только новый товар, который не был в употреблении и не имеет следов использования: царапин, сколов, потёртостей, программное обеспечение не подвергалось изменениям и т.п. Должен быть сохранен его товарный вид, потребительские свойства, пломбы, ярлыки.</p>
+        
+            <p>Вы имеете право обменять непродовольственный товар надлежащего качества на аналогичный, если товар не удовлетворил вас по форме, габаритам, цвету, размеру или по другим причинам.</p>
+        
+            <h3>Для возврата или обмена товара при себе необходимо иметь:</h3>
+        
+            <ul>
+                <li> -- Гарантийный талон</li>
+                <li> -- Полную комплектацию товара</li>
+                <li> -- Заводскую упаковку</li>
+            </ul>
         </div>
       </div>
     </div>
@@ -165,108 +182,7 @@
         </p>
       </div>
     </div>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyDCW9SDUz5LwyoNnG9AS6muAT9d0DR0ViM",
-  authDomain: "e-cmmerce-cde2d.firebaseapp.com",
-  projectId: "e-cmmerce-cde2d",
-  storageBucket: "e-cmmerce-cde2d.appspot.com",
-  messagingSenderId: "1062187953929",
-  appId: "1:1062187953929:web:1262586065ddff08de6dd8",
-  measurementId: "G-QSNDRFEBJ1"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
 
-<script>
-
-
-  // Function to toggle between login and register forms
-  function toggleForm(formType) {
-    var indicator = document.getElementById('Indicator');
-    var loginForm = document.getElementById('LoginForm');
-    var regForm = document.getElementById('RegForm');
-
-    if (formType === 'login') {
-      indicator.style.transform = 'translateX(0)';
-      loginForm.style.display = 'block';
-      regForm.style.display = 'none';
-    } else {
-      indicator.style.transform = 'translateX(100%)';
-      loginForm.style.display = 'none';
-      regForm.style.display = 'block';
-    }
-  }
-
-  // Function to handle login form submission
-  function login(event) {
-    event.preventDefault();
-    var email = document.querySelector('#LoginForm input[type="email"]').value;
-    var password = document.querySelector('#LoginForm input[type="password"]').value;
-
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(function(userCredential) {
-        // Login successful, perform further actions
-        var user = userCredential.user;
-        console.log('Login successful:', user);
-      })
-      .catch(function(error) {
-        // Handle login errors
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.error('Login error:', errorMessage);
-      });
-  }
-
-  // Function to handle registration form submission
-  function register(event) {
-    event.preventDefault();
-    var email = document.querySelector('#RegForm input[type="email"]').value;
-    var password = document.querySelector('#RegForm input[type="password"]').value;
-
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(function(userCredential) {
-        // Registration successful, perform further actions
-        var user = userCredential.user;
-        console.log('Registration successful:', user);
-        // Add code to display the user's name or any other desired action
-      })
-      .catch(function(error) {
-        // Handle registration errors
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.error('Registration error:', errorMessage);
-      });
-  }
-  // Function to toggle between login and register forms
-function toggleForm(formType) {
-  var indicator = document.getElementById('Indicator');
-  var loginForm = document.getElementById('LoginForm');
-  var regForm = document.getElementById('RegForm');
-
-  if (formType === 'login') {
-    indicator.style.transform = 'translateX(0)';
-    loginForm.style.display = 'block';
-    regForm.style.display = 'none';
-  } else {
-    indicator.style.transform = 'translateX(100%)';
-    loginForm.style.display = 'none';
-    regForm.style.display = 'block';
-  }
-}
-
-</script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();

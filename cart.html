@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600-сом;700&display=swap"
       rel="stylesheet"
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -17,7 +17,7 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="icon" type="image/x-icon" href="images/ecom.png" />
+    <link rel="icon" type="image/x-icon" href="images/logo-ecom1.png" />
   </head>
   <style>
     .cart-container {
@@ -56,7 +56,7 @@
       <div class="navbar">
         <div class="logo">
           <a href="index.html">
-            <img src="images/ecom.png" width="125px" />
+            <img src="images/logo-ecom1.png" width="150px" />
           </a>
         </div>
         <div class="search_bar">
@@ -69,7 +69,7 @@
           <ul id="MenuItems">
             <li><a href="index.html">Главная</a></li>
             <li><a href="allproducts.html">Продукты</a></li>
-            <li><a href="">О нас</a></li>
+            <li><a href="about.html">О нас</a></li>
             <li><a href="">Контакт</a></li>
             <li><a href="account.html">Аккаунт</a></li>
           </ul>
@@ -107,14 +107,14 @@
     <div class="cart-container">
         <table id="table">
             <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
+                <th>Продукт</th>
+                <th>Количество</th>
+                <th>Стоимость </th>
             </tr>
             <tbody></tbody>
         </table>
         <div class="total-price"></div>
-        <button class="buy-btn">Buy</button>
+        <button class="buy-btn">Купить</button>
     </div>
 
     <!-- Pop-up window -->
@@ -140,7 +140,7 @@
             </div>
           </div>
           <div class="footer-col-2">
-            <img src="images/ecom.png" />
+            <img src="images/logo-ecom-white.png" />
             <p>
               Технология одна по себе не представляет интереса. Важно, что мы
               сможем сделать с помощью неё
@@ -171,7 +171,7 @@
           <script type="text/javascript">
             document.write(new Date().getFullYear());
           </script>
-          - E-COMMERCE
+          - Филин Николай Владимирович
         </p>
       </div>
     </div>
@@ -232,7 +232,7 @@ function calculateTotalPrice() {
   }, 0);
   
   var totalPriceElement = document.querySelector('.total-price');
-  totalPriceElement.textContent = 'Total Price: Rs. ' + total.toFixed(2);
+  totalPriceElement.textContent = 'Общая цена:  ' + total.toFixed(2);
 }
 
 // Function to check if cart is empty and hide buy button if needed
@@ -252,7 +252,7 @@ cart.forEach(function(item, index) {
     <td class="product">
       <img src="${item.imageSrc}" alt="${item.title}" />
       <span>${item.title}</span>
-      <button class="remove-btn" data-index="${index}">Remove</button>
+      <button class="remove-btn" data-index="${index}">Удалить</button>
     </td>
     <td class="quantity">${item.quantity}</td>
     <td class="subtotal">${item.price * item.quantity}</td>
@@ -260,7 +260,17 @@ cart.forEach(function(item, index) {
   
   // Append the row to the table body
   tableBody.appendChild(row);
+
+  // Add event listener to the remove button inside this row
+  row.querySelector('.remove-btn').addEventListener('click', function() {
+    // Delete the row from the table body
+    tableBody.removeChild(row);
+
+    // If you want to remove the item from the cart array as well, uncomment the following line:
+    // cart.splice(index, 1);
+  });
 });
+
 
 // Add event listener to remove button
 var removeButtons = document.querySelectorAll('.remove-btn');
