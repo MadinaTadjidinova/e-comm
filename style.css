@@ -1362,6 +1362,21 @@ body.active {
   #message.show {
     opacity: 1;
   }
+  #message1 {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: auto; /* add this line */
+    padding: 20px;
+    background-color: #4caf50; /* Green */
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  #message1.show {
+    opacity: 1;
+  }
   .cart-container{
     padding: 70px;
   }
@@ -1559,3 +1574,7 @@ input.item-quantity:focus {
     margin: 0.5em 0 1em; /* Some vertical space between paragraphs */
     font-size: 1.1em; /* Slightly larger text */
 }
+
+#user-menu-item {
+    display: inline-block;
+  }

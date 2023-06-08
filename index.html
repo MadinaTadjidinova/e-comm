@@ -57,15 +57,15 @@
           </div>
           <div id="search-results" class="row"></div>
 
-            <nav>
-              <ul id="MenuItems">
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="allproducts.html">Продукты</a></li>
-                <li><a href="about.html">О нас</a></li>
-                <li><a href="contact.html">Контакты</a></li>
-                <li><a href="account.html">Аккаунт</a></li>
-              </ul>
-            </nav>
+          <nav>
+            <ul id="MenuItems">
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="allproducts.html">Продукты</a></li>
+              <li><a href="about.html">О нас</a></li>
+              <li><a href="contact.html">Контакты</a></li>
+              <li id="user-menu-item" style="display: none;"><a href="account.html">Аккаунт</a></li>
+            </ul>
+          </nav>
             <a href="cart.html" class="cart-hover">
               <img
                 class="cart-image"
@@ -610,6 +610,23 @@
         document.getElementById("myDiv").style.display = "block";
       }
     </script>
+  <script>
+    // Retrieve the username from local storage
+    const userName = localStorage.getItem('userName');
+
+    // Get the user menu item element
+    const userMenuItem = document.getElementById('user-menu-item');
+
+    // Display the username or "Аккаунт" link based on user's authentication status
+    if (userName) {
+      const userInfo = document.createElement('div');
+      userInfo.id = 'user-info';
+      userInfo.textContent = `Привет, ${userName}!`;
+      userMenuItem.replaceWith(userInfo);
+    } else {
+      userMenuItem.style.display = 'inline-block';
+    }
+  </script>
     <script src="./script.js"></script>
   </body>
 </html>

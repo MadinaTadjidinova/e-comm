@@ -86,7 +86,7 @@
           <img src="images/everyday appliances.png" width="100%">
         </div>
         <div class="col-2">
-          <div class="form-container">
+          <!-- <div class="form-container">
             <div class="form-btn">
               <span onclick="toggleForm('login')">Login</span>
               <span onclick="toggleForm('register')">Register</span>
@@ -103,6 +103,23 @@
               <input class="input-field" type="email" placeholder="Email" required>
               <input class="input-field" type="password" placeholder="Password" required>
               <button type="submit" class="btn">Register</button>
+            </form>
+          </div> -->
+          <div class="form-container">
+            <h2>Authorization</h2>
+            <form id="signup-form">
+              <h2>Create an Account</h2>
+              <label for="signup-email">User Name:</label>
+              <input class="input-field" type="text" id="signup-user" required>
+
+              <label for="signup-email">Email:</label>
+              <input class="input-field" type="text" id="signup-email" required>
+              
+              <label for="signup-password">Password:</label>
+              <input class="input-field" type="password" id="signup-password" required>
+              
+              <button type="submit" class="btn">Sign Up</button>
+              <div id="signup-error" class="error-message"></div>
             </form>
           </div>
         </div>
@@ -165,107 +182,35 @@
         </p>
       </div>
     </div>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyDCW9SDUz5LwyoNnG9AS6muAT9d0DR0ViM",
-  authDomain: "e-cmmerce-cde2d.firebaseapp.com",
-  projectId: "e-cmmerce-cde2d",
-  storageBucket: "e-cmmerce-cde2d.appspot.com",
-  messagingSenderId: "1062187953929",
-  appId: "1:1062187953929:web:1262586065ddff08de6dd8",
-  measurementId: "G-QSNDRFEBJ1"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
-
 <script>
+  const signupForm = document.getElementById('signup-form');
+  const signupEmailInput = document.getElementById('signup-email');
+  const signupUserInput = document.getElementById('signup-user');
+  const signupPasswordInput = document.getElementById('signup-password');
+  const signupError = document.getElementById('signup-error');
 
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    signupError.textContent = '';
 
-  // Function to toggle between login and register forms
-  function toggleForm(formType) {
-    var indicator = document.getElementById('Indicator');
-    var loginForm = document.getElementById('LoginForm');
-    var regForm = document.getElementById('RegForm');
-
-    if (formType === 'login') {
-      indicator.style.transform = 'translateX(0)';
-      loginForm.style.display = 'block';
-      regForm.style.display = 'none';
-    } else {
-      indicator.style.transform = 'translateX(100%)';
-      loginForm.style.display = 'none';
-      regForm.style.display = 'block';
+    const user = signupUserInput.value;
+    const email = signupEmailInput.value;
+    const password = signupPasswordInput.value;
+    
+    // You can replace this with your own validation logic
+    if (email.trim() === '' || password.trim() === '') {
+      signupError.textContent = 'Please fill in all fields.';
+      return;
     }
-  }
 
-  // Function to handle login form submission
-  function login(event) {
-    event.preventDefault();
-    var email = document.querySelector('#LoginForm input[type="email"]').value;
-    var password = document.querySelector('#LoginForm input[type="password"]').value;
-
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(function(userCredential) {
-        // Login successful, perform further actions
-        var user = userCredential.user;
-        console.log('Login successful:', user);
-      })
-      .catch(function(error) {
-        // Handle login errors
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.error('Login error:', errorMessage);
-      });
-  }
-
-  // Function to handle registration form submission
-  function register(event) {
-    event.preventDefault();
-    var email = document.querySelector('#RegForm input[type="email"]').value;
-    var password = document.querySelector('#RegForm input[type="password"]').value;
-
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(function(userCredential) {
-        // Registration successful, perform further actions
-        var user = userCredential.user;
-        console.log('Registration successful:', user);
-        // Add code to display the user's name or any other desired action
-      })
-      .catch(function(error) {
-        // Handle registration errors
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.error('Registration error:', errorMessage);
-      });
-  }
-  // Function to toggle between login and register forms
-function toggleForm(formType) {
-  var indicator = document.getElementById('Indicator');
-  var loginForm = document.getElementById('LoginForm');
-  var regForm = document.getElementById('RegForm');
-
-  if (formType === 'login') {
-    indicator.style.transform = 'translateX(0)';
-    loginForm.style.display = 'block';
-    regForm.style.display = 'none';
-  } else {
-    indicator.style.transform = 'translateX(100%)';
-    loginForm.style.display = 'none';
-    regForm.style.display = 'block';
-  }
-}
-
+    const userName = user; // Use the email as the username for simplicity
+    
+    // Store the username in local storage
+    localStorage.setItem('userName', userName);
+    
+    // Redirect to index.html
+    window.location.href = 'index.html';
+  });
 </script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
