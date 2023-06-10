@@ -75,8 +75,10 @@ addToCartButtons.forEach(function (button) {
   button.addEventListener("click", function (event) {
     var product = event.target.parentElement;
     var title = product.querySelector("h4").innerText;
-    var price = Number(product.querySelector("p").innerText.replace(" ", ""));
-    var imageSrc = product.parentElement.querySelector("img").src;
+    var priceString = product.querySelector("p").innerText.replace(/\s/g, "").replace("-сом", "");
+    var price = Number(priceString);
+    
+    var imageSrc = product.querySelector("img").src;
     var quantity = product.querySelector(".item-quantity").value;
 
     var existingCartItemIndex = -1;
@@ -106,7 +108,7 @@ addToCartButtons.forEach(function (button) {
     localStorage.setItem("cart", JSON.stringify(cart));
 
     var message = document.getElementById("message");
-    message.textContent = "Product added to cart!";
+    message.textContent = "Товар добавлен в корзину!";
     message.classList.add("show");
 
     // Clear the message after a few seconds

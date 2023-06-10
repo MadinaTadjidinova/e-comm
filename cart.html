@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600-сом;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -50,11 +50,12 @@
       font-weight: bold;
     }
     .popup-container {
+      z-index: 1;
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 500px; 
+      width: 500px;
       padding: 30px;
       background-color: #fff;
       border: 1px solid #ccc;
@@ -71,17 +72,17 @@
     .popup-container input,
     .popup-container button {
       display: block;
-      margin-bottom: 20px; 
+      margin-bottom: 20px;
     }
 
     .popup-container label {
-      font-size: 18px; 
-      color: #333; 
+      font-size: 18px;
+      color: #333;
     }
 
     .popup-container input {
-      padding: 10px; 
-      font-size: 16px; 
+      padding: 10px;
+      font-size: 16px;
       border-radius: 5px;
     }
 
@@ -91,12 +92,12 @@
       border: none;
       padding: 15px;
       cursor: pointer;
-      font-size: 18px; 
-      border-radius: 5px; 
+      font-size: 18px;
+      border-radius: 5px;
     }
 
     .popup-container button:hover {
-      background-color: #0056b3; 
+      background-color: #0056b3;
     }
 
     .card-details {
@@ -105,12 +106,11 @@
       border-radius: 15px;
     }
     .hide {
-  display: none;
-}
+      display: none;
+    }
   </style>
 
   <body>
-    <div id="message1"></div>
     <div class="container">
       <div class="navbar">
         <div class="logo">
@@ -164,13 +164,31 @@
 
         <div class="card-details">
           <label for="card-number">Номер карты:</label>
-          <input type="text" id="card-number" pattern="\d{4} \d{4} \d{4} \d{4}" placeholder="XXXX XXXX XXXX XXXX" required />
-      
+          <input
+            type="text"
+            id="card-number"
+            pattern="\d{4} \d{4} \d{4} \d{4}"
+            placeholder="XXXX XXXX XXXX XXXX"
+            required
+          />
+
           <label for="expiry-date">Дата истечения срока действия:</label>
-          <input type="text" id="expiry-date" pattern="\d{2}\/\d{2}" placeholder="MM/YY" required />
-      
+          <input
+            type="text"
+            id="expiry-date"
+            pattern="\d{2}\/\d{2}"
+            placeholder="MM/YY"
+            required
+          />
+
           <label for="cvv">CVV:</label>
-          <input type="text" id="cvv" pattern="\d{3}" placeholder="XXX" required />
+          <input
+            type="text"
+            id="cvv"
+            pattern="\d{3}"
+            placeholder="XXX"
+            required
+          />
         </div>
 
         <label for="phone">Номер телефона:</label>
@@ -247,166 +265,125 @@
       AOS.init();
     </script>
     <script>
-      // window.onload = function () {
-      //         localStorage.removeItem("cart");
-      //       };
-      // Get cart items from localStorage
       var cart = JSON.parse(localStorage.getItem("cart") || "[]");
-
-      // Get table body element
       var tableBody = document.querySelector("#table tbody");
 
-      // Function to remove item from cart
       function removeItem(index) {
-        // Remove item from cart array
         cart.splice(index, 1);
-
-        // Update localStorage
         localStorage.setItem("cart", JSON.stringify(cart));
+        renderCartItems();
+      }
 
-        // Remove row from table
-        var row = tableBody.querySelector(`[data-index="${index}"]`);
-        if (row) {
-          row.parentNode.removeChild(row);
-        }
+      function renderCartItems() {
+        var tableHeader = `
+      <tr>
+        <th>Продукт</th>
+        <th>Количество</th>
+        <th>Стоимость</th>
+      </tr>
+    `;
 
-        // Recalculate and display total price
+        var tableRows = cart
+          .map(function (item, index) {
+            return `
+          <tr>
+            <td class="product">
+              <img src="${item.imageSrc}" alt="${item.title}" />
+              <span>${item.title}</span>
+              <button class="remove-btn" data-index="${index}">Удалить</button>
+            </td>
+            <td class="quantity">${item.quantity}</td>
+            <td class="subtotal">${(item.price * item.quantity).toFixed(2)}</td>
+          </tr>
+        `;
+          })
+          .join("");
+
+        tableBody.innerHTML = tableHeader + tableRows;
+
         calculateTotalPrice();
-
-        // Check if cart is empty and hide buy button if needed
         checkCartEmpty();
       }
 
-      // Function to calculate and display total price
       function calculateTotalPrice() {
         var total = cart.reduce(function (acc, item) {
           return acc + item.price * item.quantity;
         }, 0);
 
         var totalPriceElement = document.querySelector(".total-price");
-        totalPriceElement.textContent = "Общая цена:  " + total.toFixed(2);
+        totalPriceElement.textContent = "Общая цена: " + total.toFixed(2);
       }
 
-      // Function to check if cart is empty and hide buy button if needed
       function checkCartEmpty() {
         var buyButton = document.querySelector(".buy-btn");
-        if (cart.length === 0) {
-          buyButton.style.display = "none";
-        } else {
-          buyButton.style.display = "block";
-        }
+        buyButton.style.display = cart.length === 0 ? "none" : "block";
       }
 
-      // Render cart items in the table
-      cart.forEach(function (item, index) {
-        var row = document.createElement("tr");
-        row.innerHTML = `
-    <td class="product">
-      <img src="${item.imageSrc}" alt="${item.title}" />
-      <span>${item.title}</span>
-      <button class="remove-btn" data-index="${index}">Удалить</button>
-    </td>
-    <td class="quantity">${item.quantity}</td>
-    <td class="subtotal">${item.price * item.quantity}</td>
-  `;
-
-        // Append the row to the table body
-        tableBody.appendChild(row);
-
-        // Add event listener to the remove button inside this row
-        row.querySelector(".remove-btn").addEventListener("click", function () {
-          tableBody.removeChild(row);
-        });
-      });
-
-      // Add event listener to remove button
-      var removeButtons = document.querySelectorAll(".remove-btn");
-      removeButtons.forEach(function (button) {
-        button.addEventListener("click", function (event) {
+      tableBody.addEventListener("click", function (event) {
+        if (event.target.classList.contains("remove-btn")) {
           var index = parseInt(event.target.getAttribute("data-index"));
           removeItem(index);
-        });
+        }
       });
 
-      // Calculate and display total price
-      calculateTotalPrice();
+      renderCartItems();
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var buyButton = document.querySelector(".buy-btn");
+        var purchaseForm = document.getElementById("purchase-form");
+        var thxToBuyButton = document.querySelector(".thxToBuy");
+        var message = document.getElementById("message1");
+        var totalPrice = document.querySelector(".total-price");
+
+        function checkCart() {
+          var tableBody = document.querySelector("#table tbody");
+          if (tableBody && tableBody.hasChildNodes()) {
+            buyButton.disabled = false;
+          } else {
+            buyButton.disabled = true;
+            buyButton.classList.add("hidden");
+          }
+        }
+
+        checkCart();
+
+        buyButton.addEventListener("click", function () {
+          if (!buyButton.disabled) {
+            purchaseForm.classList.add("show");
+          }
+        });
+
+        thxToBuyButton.addEventListener("click", function (event) {
+          event.preventDefault();
+
+          var address = document.getElementById("address").value;
+          var cardNumber = document.getElementById("card-number").value;
+          var expiryDate = document.getElementById("expiry-date").value;
+          var cvv = document.getElementById("cvv").value;
+          var phone = document.getElementById("phone").value;
+
+          // Perform purchase logic here, e.g., send data to the server
+
+          tableBody.innerHTML = "";
+          totalPrice.textContent = "0";
+
+          message.textContent = "Спасибо за покупку!";
+          message.classList.add("show");
+
+          purchaseForm.classList.remove("show");
+          thxToBuyButton.classList.add("hidden");
+
+          setTimeout(function () {
+            message.textContent = "";
+            message.classList.remove("show");
+            checkCart();
+          }, 5000);
+        });
+
+        checkCart();
+      });
     </script>
 
-    <script>
-window.onload = function() {
-  // Get the elements
-  const buyButton = document.querySelector(".buy-btn");
-  const purchaseForm = document.getElementById("purchase-form");
-  const thxToBuyButton = document.querySelector(".thxToBuy");
-  const message = document.getElementById("message1");
-  const totalPrice = document.querySelector(".total-price");
-
-  // Check if the cart is empty and disable/hide the buy button accordingly
-  const checkCart = function() {
-    const tableBody = document.querySelector('#table tbody');
-    if (tableBody && tableBody.hasChildNodes()) {
-      buyButton.disabled = false;
-    } else {
-      buyButton.disabled = true;
-      buyButton.classList.add("hidden"); // Add this line to hide the button
-    }
-  };
-
-  // Check the cart status on load
-  checkCart();
-
-  // When the buy button is clicked, show the purchase form
-  buyButton.addEventListener("click", () => {
-    if (!buyButton.disabled) {
-      purchaseForm.classList.add("show");
-    }
-  });
-
-  // When the purchase button is clicked
-  thxToBuyButton.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    // Get input field values
-    const address = document.getElementById("address").value;
-    const cardNumber = document.getElementById("card-number").value;
-    const expiryDate = document.getElementById("expiry-date").value;
-    const cvv = document.getElementById("cvv").value;
-    const phone = document.getElementById("phone").value;
-
-    // Perform purchase logic here, e.g., send data to the server
-
-    // Clear the table and reset total price
-    const tableBody = document.querySelector('#table tbody');
-    if (tableBody) {
-      tableBody.innerHTML = '';
-      totalPrice.textContent = '0'; // Or whatever placeholder you want when cart is empty
-    }
-
-    // Display the thank you message
-    message.textContent = "Спасибо за покупку!";
-    message.classList.add("show");
-
-    // Hide the purchase form
-    purchaseForm.classList.remove("show");
-
-    // Hide the "thxToBuy" button
-    thxToBuyButton.classList.add("hidden");
-
-    // Clear the message after a few seconds
-    setTimeout(function () {
-      message.textContent = "";
-      message.classList.remove("show");
-      checkCart();
-    }, 5000);
-  });
-
-  // Check the initial state of the cart on load
-  checkCart();
-};
-
-
-    </script>
-
+    <script src="./script.js"></script>
   </body>
 </html>
-
