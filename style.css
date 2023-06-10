@@ -198,7 +198,7 @@ p {
     margin: 0px 13px;
     border-radius: 6px;
     /* background: rgba(103, 44, 44, 0.2); */
-    background: white;
+    background: aliceblue;
     padding: 7px 10px;
     
 }
@@ -847,8 +847,6 @@ th:last-child {
 .form-container form {
     max-width: 300px;
     padding: 0 20px;
-    position: absolute;
-    top: 130px;
     transition: transform 1s;
 }
 
@@ -858,6 +856,7 @@ form input {
     margin: 10px 0;
     padding: 0 10px;
     border: 1px solid #999;
+    border-radius: 30px;
 }
 
 form .btn {

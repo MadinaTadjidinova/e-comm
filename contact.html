@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600-сом;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://kit.fontawesome.com/f390425e8d.js" crossorigin="anonymous"></script>
@@ -60,12 +60,8 @@
         <div class="contact-info">
             <h2>Контактная информация</h2>
             <h3>Телефоны:</h3>
-            <p>0774 71 46 63</p>
-            <p>0708 33 43 65</p>
-            <p>0774 71 46 63</p>
-            <p>0708 33 43 65</p>
-            <p>0774 71 46 63</p>
-            <p>+996774714663</p>
+            <p>+996 774 71 46 63</p>
+            <p>+996 708 33 43 65</p>
             <h3>Email:</h3>
             <p>example@gmail.com</p>
             <h3>Адрес:</h3>
@@ -93,33 +89,84 @@
             </div>
     </div>
 
-    <script>
-        var MenuItems = document.getElementById("MenuItems");
-        MenuItems.style.maxHeight = "0px";
+   <!------footer--------->
+   <div class="footer">
+    <div class="container" data-aos="fade-up">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Принимаем к оплате</h3>
+                 
+                <div class="app-logo">
+                    <img src="images/carta.webp" class="footer-img">
+                    <img src="images/logo-elcart.png" class="footer-img">
+                </div>
+            </div>
+            <div class="footer-col-2">
+                <img src="images/logo-ecom-white.png">
+                <p>Технология одна по себе не представляет интереса.
+Важно, что мы сможем сделать с помощью неё</p>
+            </div>
+            <div class="footer-col-3">
+                <h3>Клиентам</h3>
+                <ul>
+                    <li>Coupons</li>
+                    <li>Blog Post</li>
+                    <li>Return Policy</li>
+                    <li>Join Affiliate</li>
+                </ul>
+            </div>
+            <div class="footer-col-4" data-aos="fade-up">
+                <h3>Контактная информация</h3>
+                <div class="socialbtns" align="center">
+                    <ul>
+                        <li>
+                            <a href="#" class="fa fa-lg fa-facebook"></a> Facebook</li><br>
+                        <li>
+                            <a href="#" class="fa fa-lg fa-twitter"></a> Twitter</li><br>
+                        <li>
+                            <a href="#" class="fa fa-lg fa-instagram"></a> Instagram</li><br>
+                        <li>
+                            <a href="#" class="fa fa-lg fa-youtube"></a> Youtube</li><br>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Copyright &copy
+            <script type="text/javascript">
+                document.write(new Date().getFullYear());
+            </script> Филин Николай Владимирович
+        </p>
+    </div>
+</div>
+<script>
+    var MenuItems = document.getElementById("MenuItems");
+    MenuItems.style.maxHeight = "0px";
 
-        function menutoggle() {
-            if (MenuItems.style.maxHeight == "0px") {
-                MenuItems.style.maxHeight = "200px";
-            } else {
-                MenuItems.style.maxHeight = "0px";
-            }
+    function menutoggle() {
+        if (MenuItems.style.maxHeight == "0px") {
+            MenuItems.style.maxHeight = "200px";
+        } else {
+            MenuItems.style.maxHeight = "0px";
         }
-        const ball = document.querySelector(".toggle-ball");
-        const items = document.querySelectorAll(".row,body,.menu-icon,.container,.navbar,.header,.toggle");
-        const cartImage = document.querySelector(".cart-image");
-        const formTitle = document.querySelector(".form-title");
-        console.log(formTitle);
-        ball.addEventListener("click", () => {
+    }
+    const ball = document.querySelector(".toggle-ball");
+    const items = document.querySelectorAll(".row,body,.menu-icon,.container,.navbar,.header,.toggle");
+    const cartImage = document.querySelector('.cart-image');
+    ball.addEventListener("click", () => {
 
-            items.forEach(item => {
-                item.classList.toggle("active")
-            })
-            ball.classList.toggle("active")
-            MenuItems.classList.toggle("active")
-            cartImage.classList.toggle("bgm-change")
-            formTitle.classList.toggle("active")
+        items.forEach(item => {
+            item.classList.toggle("active")
         })
-    </script>
+        ball.classList.toggle("active")
+        MenuItems.classList.toggle("active")
+        cartImage.classList.toggle("bgm-change")
+    })
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 <script src="./script.js"></script>
 </body>
 
