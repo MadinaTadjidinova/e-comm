@@ -1,173 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Контакт | E-COMMERCE</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <script src="https://kit.fontawesome.com/f390425e8d.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/f390425e8d.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="icon" type="image/x-icon" href="images/logo-ecom1.png" />
-    <link type="text/css" rel="stylesheet" href="path-to-fontawesome/font-awesome.css" />
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="images/logo-ecom1.png" width="150px">
-                </a>
-            </div>
-            <div class="search_bar">
-              <input type="text" name="search" id="search-input" placeholder="Search">
-              <button type="submit" class="search-button"><img src="images/icons8-search-24.png"></button>
-          </div>
-          <div id="search-results" class="row"></div>
-            <nav>
-                <ul id="MenuItems">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="allproducts.html">Продукты</a></li>
-                    <li><a href="about.html">О нас</a></li>
-                    <li><a href="contact.html">Контакт</a></li>
-                    <li><a href="account.html">Аккаунт</a></li>
-                </ul>
-            </nav>
-            <a href="cart.html">
-                <img class="cart-image" src="images/cart.png" width="30px" height="30px">
-            </a>
-            <div class="toggle">
-                <i class="fa-solid fa-moon toggle-icon"></i>
-                <i class="fa-solid fa-sun toggle-icon"></i>
-                <div class="toggle-ball"></div>
-            </div>
-
-            <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
-
+      <div class="navbar">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/logo-ecom1.png" width="150px" />
+          </a>
+        </div>
+        <div class="search_bar">
+          <input
+            type="text"
+            name="search"
+            id="search-input"
+            placeholder="Search"
+          />
+          <button type="submit" class="search-button">
+            <img src="images/icons8-search-24.png" />
+          </button>
+        </div>
+        <div id="search-results" class="row"></div>
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="allproducts.html">Продукты</a></li>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="contact.html">Контакт</a></li>
+            <li><a href="account.html">Аккаунт</a></li>
+          </ul>
+        </nav>
+        <a href="cart.html">
+          <img
+            class="cart-image"
+            src="images/cart.png"
+            width="30px"
+            height="30px"
+          />
+        </a>
+        <div class="toggle">
+          <i class="fa-solid fa-moon toggle-icon"></i>
+          <i class="fa-solid fa-sun toggle-icon"></i>
+          <div class="toggle-ball"></div>
         </div>
 
+        <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" />
+      </div>
     </div>
 
     <div class="Контакт-form-container">
-        <div class="contact-info">
-            <h2>Контактная информация</h2>
-            <h3>Телефоны:</h3>
-            <p>+996 774 71 46 63</p>
-            <p>+996 708 33 43 65</p>
-            <h3>Email:</h3>
-            <p>example@gmail.com</p>
-            <h3>Адрес:</h3>
-            <p>077722, г.Каракол, ул.Карасаева №180</p>
+      <div class="contact-info">
+        <h2>Контактная информация</h2>
+        <h3>Телефоны:</h3>
+        <p>+996 774 71 46 63</p>
+        <p>+996 708 33 43 65</p>
+        <h3>Email:</h3>
+        <p>example@gmail.com</p>
+        <h3>Адрес:</h3>
+        <p>077722, г.Каракол, ул.Карасаева №180</p>
+      </div>
+      <h1 class="form-title">Обратный связь</h1>
+      <form id="form" class="contact-form">
+        <div class="form-item">
+          <input
+            type="text"
+            class="name"
+            placeholder="Ваше имя"
+            id="name"
+            class="name"
+          />
         </div>
-        <h1 class="form-title">Обратный связь</h1>
-        <form action="#" class="Контакт-form">
-            <div class="form-item">
-                <input type="email" id="email" name="email" placeholder="Email address">
-            </div>
 
-            <div class="form-item">
-                <input type="number" id="phone" name="phone" placeholder="Номер телефона">
-            </div>
+        <div class="form-item">
+          <input
+            type="number"
+            placeholder="Ваш телефон"
+            id="phone"
+            class="email"
+          />
+        </div>
 
-            <div class="form-item textarea-container">
-                <textarea name="feedback" id="feedback" placeholder="Ваши комментарии"></textarea>
-            </div>
+        <div class="form-item textarea-container">
+          <textarea
+          type="feedback"
+            name="feedback"
+            id="feedback"
+            placeholder="Ваши комментарии"
+          ></textarea>
+        </div>
 
-            <div class="submit-btn">
-                <button type="submit">Submit</button>
-            </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2942.0403833538767!2d78.39524768588552!3d42.49069409687357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38865bec8b872479%3A0xe09308c0a8d475b6!2z0JjQk9CjINC60L7RgNC_0YPRgSDihJYx!5e0!3m2!1sru!2skg!4v1686158337089!5m2!1sru!2skg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+        <div class="submit-btn">
+          <button type="submit">Отправить</button>
+        </div>
+      </form>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2942.0403833538767!2d78.39524768588552!3d42.49069409687357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38865bec8b872479%3A0xe09308c0a8d475b6!2z0JjQk9CjINC60L7RgNC_0YPRgSDihJYx!5e0!3m2!1sru!2skg!4v1686158337089!5m2!1sru!2skg"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
     </div>
 
-   <!------footer--------->
-   <div class="footer">
-    <div class="container" data-aos="fade-up">
+    <!------footer--------->
+    <div class="footer">
+      <div class="container" data-aos="fade-up">
         <div class="row">
-            <div class="footer-col-1">
-                <h3>Принимаем к оплате</h3>
-                 
-                <div class="app-logo">
-                    <img src="images/carta.webp" class="footer-img">
-                    <img src="images/logo-elcart.png" class="footer-img">
-                </div>
+          <div class="footer-col-1">
+            <h3>Принимаем к оплате</h3>
+
+            <div class="app-logo">
+              <img src="images/carta.webp" class="footer-img" />
+              <img src="images/logo-elcart.png" class="footer-img" />
             </div>
-            <div class="footer-col-2">
-                <img src="images/logo-ecom-white.png">
-                <p>Технология одна по себе не представляет интереса.
-Важно, что мы сможем сделать с помощью неё</p>
+          </div>
+          <div class="footer-col-2">
+            <img src="images/logo-ecom-white.png" />
+            <p>
+              Технология одна по себе не представляет интереса. Важно, что мы
+              сможем сделать с помощью неё
+            </p>
+          </div>
+          <div class="footer-col-3">
+            <h3>Клиентам</h3>
+            <ul>
+              <li>Coupons</li>
+              <li>Blog Post</li>
+              <li>Return Policy</li>
+              <li>Join Affiliate</li>
+            </ul>
+          </div>
+          <div class="footer-col-4" data-aos="fade-up">
+            <h3>Контактная информация</h3>
+            <div class="socialbtns" align="center">
+              <ul>
+                <li><a href="#" class="fa fa-lg fa-facebook"></a> Facebook</li>
+                <br />
+                <li><a href="#" class="fa fa-lg fa-twitter"></a> Twitter</li>
+                <br />
+                <li>
+                  <a href="#" class="fa fa-lg fa-instagram"></a> Instagram
+                </li>
+                <br />
+                <li><a href="#" class="fa fa-lg fa-youtube"></a> Youtube</li>
+                <br />
+              </ul>
             </div>
-            <div class="footer-col-3">
-                <h3>Клиентам</h3>
-                <ul>
-                    <li>Coupons</li>
-                    <li>Blog Post</li>
-                    <li>Return Policy</li>
-                    <li>Join Affiliate</li>
-                </ul>
-            </div>
-            <div class="footer-col-4" data-aos="fade-up">
-                <h3>Контактная информация</h3>
-                <div class="socialbtns" align="center">
-                    <ul>
-                        <li>
-                            <a href="#" class="fa fa-lg fa-facebook"></a> Facebook</li><br>
-                        <li>
-                            <a href="#" class="fa fa-lg fa-twitter"></a> Twitter</li><br>
-                        <li>
-                            <a href="#" class="fa fa-lg fa-instagram"></a> Instagram</li><br>
-                        <li>
-                            <a href="#" class="fa fa-lg fa-youtube"></a> Youtube</li><br>
-                    </ul>
-                </div>
-            </div>
+          </div>
         </div>
-        <hr>
-        <p class="copyright">Copyright &copy
-            <script type="text/javascript">
-                document.write(new Date().getFullYear());
-            </script> Филин Николай Владимирович
+        <hr />
+        <p class="copyright">
+          Copyright &copy
+          <script type="text/javascript">
+            document.write(new Date().getFullYear());
+          </script>
+          Филин Николай Владимирович
         </p>
+      </div>
     </div>
-</div>
-<script>
-    var MenuItems = document.getElementById("MenuItems");
-    MenuItems.style.maxHeight = "0px";
+    <script>
+      var MenuItems = document.getElementById("MenuItems");
+      MenuItems.style.maxHeight = "0px";
 
-    function menutoggle() {
+      function menutoggle() {
         if (MenuItems.style.maxHeight == "0px") {
-            MenuItems.style.maxHeight = "200px";
+          MenuItems.style.maxHeight = "200px";
         } else {
-            MenuItems.style.maxHeight = "0px";
+          MenuItems.style.maxHeight = "0px";
         }
-    }
-    const ball = document.querySelector(".toggle-ball");
-    const items = document.querySelectorAll(".row,body,.menu-icon,.container,.navbar,.header,.toggle");
-    const cartImage = document.querySelector('.cart-image');
-    ball.addEventListener("click", () => {
+      }
+      const ball = document.querySelector(".toggle-ball");
+      const items = document.querySelectorAll(
+        ".row,body,.menu-icon,.container,.navbar,.header,.toggle"
+      );
+      const cartImage = document.querySelector(".cart-image");
+      ball.addEventListener("click", () => {
+        items.forEach((item) => {
+          item.classList.toggle("active");
+        });
+        ball.classList.toggle("active");
+        MenuItems.classList.toggle("active");
+        cartImage.classList.toggle("bgm-change");
+      });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      let form = document.querySelector("#form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-        items.forEach(item => {
-            item.classList.toggle("active")
+        let name = document.getElementById("name").value;
+        let phone = document.getElementById("phone").value;
+        let feedback = document.getElementById("feedback").value;
+
+        let my_text = `Сообщение клиента:%0A - Имя: ${name} %0A - Номер телефона: ${phone} %0A - Комментарий: ${feedback} `;
+        let token = "6232398941:AAG2koFLf3YzugpOLJ4t9Jm5Mpj2WWVNuRY";
+
+        let chat_id = -1001758937858;
+
+        let url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}`;
+
+        fetch(url, {
+          method: "POST",
         })
-        ball.classList.toggle("active")
-        MenuItems.classList.toggle("active")
-        cartImage.classList.toggle("bgm-change")
-    })
-</script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init();
-</script>
-<script src="./script.js"></script>
-</body>
-
+          .then((response) => {
+            if (response.ok) {
+              console.log("Сообщение успешно отправлено!");
+            } else {
+              console.log("Произошла ошибка при отправке сообщения.");
+            }
+          })
+          .catch((error) => {
+            console.log("Произошла ошибка при отправке сообщения:", error);
+          });
+          
+      });
+    </script>
+  </body>
 </html>
