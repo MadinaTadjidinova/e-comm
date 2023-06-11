@@ -293,7 +293,7 @@
               <button class="remove-btn" data-index="${index}">Удалить</button>
             </td>
             <td class="quantity">${item.quantity}</td>
-            <td class="subtotal">${(item.price * item.quantity).toFixed(0)}</td>
+            <td class="subtotal">${item.price * item.quantity}</td>
           </tr>
         `;
           })
@@ -311,7 +311,7 @@
         }, 0);
 
         var totalPriceElement = document.querySelector(".total-price");
-        totalPriceElement.textContent = "Общая цена: " + total.toFixed(2);
+        totalPriceElement.textContent = "Общая цена: " + total.toFixed(2) + "сом";
       }
 
       function checkCartEmpty() {

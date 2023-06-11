@@ -75,7 +75,8 @@ addToCartButtons.forEach(function (button) {
   button.addEventListener("click", function (event) {
     var product = event.target.parentElement;
     var title = product.querySelector("h4").innerText;
-    var priceString = product.querySelector("p").innerText.replace(/\s/g, "").replace("-сом", "");
+    var priceString = product.querySelector("p").innerText.replace(/\./g, "").replace("-сом", "");
+
     var price = Number(priceString);
     
     var imageSrc = product.querySelector("img").src;
